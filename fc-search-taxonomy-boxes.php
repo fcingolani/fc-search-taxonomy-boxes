@@ -3,13 +3,13 @@
 Plugin Name: FC Search Taxonomy Boxes
 Description: Adds a filter box to category (and other hierarchical taxonomies) selection box on Post edition screen.
 Author: Federico Cingolani
-Version: 1.0.0
+Version: 1.0.1
 Author URI: http://fcingolani.com.ar/
 License: GPLv2
 */
 
 function fcstb_add_admin_script($hook) {
-    if( 'post.php' != $hook )
+    if( !in_array($hook, array('post.php', 'post-new.php')) )
         return;
 
     wp_enqueue_style('fcstb_css', plugins_url('/styles.css', __FILE__) );
